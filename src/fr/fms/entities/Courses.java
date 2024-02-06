@@ -1,13 +1,23 @@
 package fr.fms.entities;
 
 public class Courses {
-
+	public int idCourse;
 	public String Name;
 	public String Description;
 	public String Remote;
 	public String Duration;
 	public int UnitaryPrice;
-
+	
+	
+	public Courses(int idCourse, String name, String description, String remote, String duration, int unitaryPrice) {
+		super();
+		this.idCourse = idCourse;
+		Name = name;
+		Description = description;
+		Remote = remote;
+		Duration = duration;
+		UnitaryPrice = unitaryPrice;
+	}
 
 
 	public Courses(String name, String description, String remote, String duration, int unitaryPrice) {
@@ -27,6 +37,16 @@ public class Courses {
 				+ Duration + ", UnitaryPrice=" + UnitaryPrice + "]";
 	}
 
+
+
+	public int getIdCourse() {
+		return idCourse;
+	}
+
+
+	public void setIdCourse(int idCourse) {
+		this.idCourse = idCourse;
+	}
 
 
 	public String getName() {
