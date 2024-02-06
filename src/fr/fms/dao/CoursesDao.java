@@ -5,8 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
-import fr.fms.entities.Article;
 import fr.fms.entities.Courses;
 
 public class CoursesDao implements Dao  <Courses>{
@@ -23,24 +21,23 @@ public class CoursesDao implements Dao  <Courses>{
 			if( ps.executeUpdate() == 1)	
 				System.out.println("insertion du cours réussie");
 		} catch (SQLException e) {
-			
+
 		} 	
 		return false;
 	}
-		
-	
+
 
 	@Override
 	public Courses read(int id) {
-		 
-			try (Statement statement = connection.createStatement()){
-				String str = "SELECT * FROM T_Articles where IdArticle=" + id + ";";									
-				ResultSet rs = statement.executeQuery(str);
-				if(rs.next()) return new Courses(rs.getString(1) , rs.getString(2) , rs.getString(3) , rs.getString(4), rs.getInt(5));
-			} catch (SQLException e) {
-				
-			} 	
-			return null;
+
+		try (Statement statement = connection.createStatement()){
+			String str = "SELECT * FROM T_Articles where IdArticle=" + id + ";";									
+			ResultSet rs = statement.executeQuery(str);
+			if(rs.next()) return new Courses(rs.getString(1) , rs.getString(2) , rs.getString(3) , rs.getString(4), rs.getInt(5));
+		} catch (SQLException e) {
+
+		} 	
+		return null;
 	}
 
 	@Override
@@ -60,20 +57,49 @@ public class CoursesDao implements Dao  <Courses>{
 		} 	
 		return false;
 	}
-	
+
 
 	@Override
 	public boolean delete(Courses obj) {
-		// TODO Auto-generated method stub
+
+		try (Statement statement = connection.createStatement()){
+			String str = "DELETE FROM T_Articles where IdArticle=" + obj.getIdCourse() + ";";									
+			statement.executeUpdate(str);		
+			System.out.println("supression réussie");
+		} catch (SQLException e) {
+
+		} 	
 		return false;
+
 	}
 
-	@Override
-	public ArrayList<Courses> readAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Courses> readAll(int idArticle) {
+		ArrayList<Courses> courses = new ArrayList<Courses>();
+		String strSql = "SELECT * FROM T_Courses" + idArticle;		
+		try(Statement statement = connection.createStatement()){
+			try(ResultSet resultSet = statement.executeQuery(strSql)){ 			
+				while(resultSet.next()) {
+					int rsIdArticle = resultSet.getInt(1);	
+					String rsName = resultSet.getString(2);
+					String rsDescription = resultSet.getString(3);
+					String rsDuration = resultSet.getString(4);		
+					String rsRemote = resultSet.getString(5);
+					int rsUnitaryPrice = resultSet.getInt(6);
+					courses.add((new Courses(rsIdArticle,rsName,rsDescription,rsDuration,rsRemote,rsUnitaryPrice)));						
+				}	
+			}
+		} catch (SQLException e) {
+
+
+		}
+		return courses;
 	}
-	
-	
 
 }
+
+
+
+
+
+
+

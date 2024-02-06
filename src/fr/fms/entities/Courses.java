@@ -7,6 +7,7 @@ public class Courses {
 	public String Remote;
 	public String Duration;
 	public int UnitaryPrice;
+
 	
 	
 	public Courses(int idCourse, String name, String description, String remote, String duration, int unitaryPrice) {
