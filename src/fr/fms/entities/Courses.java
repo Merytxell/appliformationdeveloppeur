@@ -10,6 +10,7 @@ public class Courses {
 
 	
 	
+	
 	public Courses(int idCourse, String name, String description, String remote, String duration, int unitaryPrice) {
 		super();
 		this.idCourse = idCourse;
@@ -19,6 +20,8 @@ public class Courses {
 		Duration = duration;
 		UnitaryPrice = unitaryPrice;
 	}
+
+
 
 
 	public Courses(String name, String description, String remote, String duration, int unitaryPrice) {
@@ -32,12 +35,15 @@ public class Courses {
 	}
 
 
+	
+
+
+
 	@Override
 	public String toString() {
-		return "Courses [Name=" + Name + ", Description=" + Description + ", Remote=" + Remote + ", Duration="
-				+ Duration + ", UnitaryPrice=" + UnitaryPrice + "]";
+		return "Courses [idCourse=" + idCourse + ", Name=" + Name + ", Description=" + Description + ", Remote="
+				+ Remote + ", Duration=" + Duration + ", UnitaryPrice=" + UnitaryPrice + "]";
 	}
-
 
 
 	public int getIdCourse() {

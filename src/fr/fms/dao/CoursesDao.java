@@ -9,17 +9,22 @@ import fr.fms.entities.Courses;
 
 public class CoursesDao implements Dao  <Courses>{
 
+	
+	
+	
+	
 	@Override
 	public boolean create(Courses obj) {
-		String str = "INSERT INTO T_Courses (Name,Description, Duration, Remote, UnitaryPrice) VALUES (?,?,?,?,?);";	
+		String str = "INSERT INTO T_Courses (IdCourse,Name,Description, Duration, Remote, UnitaryPrice) VALUES (?,?,?,?,?,?);";	
 		try (PreparedStatement ps = connection.prepareStatement(str)){
-			ps.setString(1, obj.getName());
-			ps.setString(2, obj.getDescription());
-			ps.setString(3, obj.getDuration());	
-			ps.setString(4, obj.getRemote());
-			ps.setInt(4, obj.getUnitaryPrice());
-			if( ps.executeUpdate() == 1)	
-				System.out.println("insertion du cours réussie");
+			ps.setInt(1, obj.getIdCourse());
+			ps.setString(2, obj.getName());
+			ps.setString(3, obj.getDescription());
+			ps.setString(4, obj.getDuration());	
+			ps.setString(5, obj.getRemote());
+			ps.setInt(6, obj.getUnitaryPrice());
+			return ps.executeUpdate() == 1;
+				//System.out.println("insertion du cours réussie");
 		} catch (SQLException e) {
 
 		} 	
@@ -29,16 +34,32 @@ public class CoursesDao implements Dao  <Courses>{
 
 	@Override
 	public Courses read(int id) {
+		String str = "SELECT * FROM T_Articles WHERE IdArticle = ?";
+		try (PreparedStatement ps= connection.prepareStatement(str)){
+			ps.setInt(1, id);
+			try (ResultSet rs = ps.executeQuery()){
+				if (rs.next()) {
+					int rsIdCourse = rs.getInt("IdCourse");
+					String rsName = rs.getString("Name");
+					String rsDescription = rs.getString("Description");
+					String rsDuration = rs.getString("Duration");
+					String rsRemote = rs.getString("Remote");
+					int rsPrice = rs.getInt("UnitaryPrice");
+					//int rsCategory = rs.getInt("IdCategory");
 
-		try (Statement statement = connection.createStatement()){
-			String str = "SELECT * FROM T_Articles where IdArticle=" + id + ";";									
-			ResultSet rs = statement.executeQuery(str);
-			if(rs.next()) return new Courses(rs.getString(1) , rs.getString(2) , rs.getString(3) , rs.getString(4), rs.getInt(5));
-		} catch (SQLException e) {
 
-		} 	
+					return new Courses (rsIdCourse,rsName, rsDescription,rsDuration,rsRemote, rsPrice);
+				}
+
+			}
+		}catch (SQLException e) {
+
+		}
 		return null;
 	}
+		
+			
+	
 
 	@Override
 	public boolean update(Courses obj) {
@@ -73,9 +94,9 @@ public class CoursesDao implements Dao  <Courses>{
 
 	}
 
-	public ArrayList<Courses> readAll(int idArticle) {
+	public ArrayList<Courses> readAll() {
 		ArrayList<Courses> courses = new ArrayList<Courses>();
-		String strSql = "SELECT * FROM T_Courses" + idArticle;		
+		String strSql = "SELECT * FROM T_Courses";		
 		try(Statement statement = connection.createStatement()){
 			try(ResultSet resultSet = statement.executeQuery(strSql)){ 			
 				while(resultSet.next()) {

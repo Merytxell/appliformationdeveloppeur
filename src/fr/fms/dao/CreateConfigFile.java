@@ -1,7 +1,8 @@
 package fr.fms.dao;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Properties;
 
 
@@ -9,30 +10,23 @@ public class CreateConfigFile {
 
 
 
-	public static void main(String args[]) throws IOException {
+	public static void main(String args[])  {
+		try (OutputStream ops = new FileOutputStream("files/config.properties")) {
+			Properties properties = new Properties();
+			properties.setProperty("db.driver", "org.mariadb.jdbc.Driver");
+			properties.setProperty("db.url", "jdbc:mariadb://localhost:3306/formationdev");
+			properties.setProperty("db.login", "root");
+			properties.setProperty("db.password", "fms2024");
+			properties.store(ops , "No comment !");
 		
-		Properties prop = readPropertiesFile("src/config.properties");
-		System.out.println(prop.getProperty("db.driver\", \"org.mariadb.jdbc.Driver"));
-		System.out.println(prop.getProperty("db.url\", \"jdbc:mariadb://localhost:3306/formationdev"));
-		System.out.println( prop.getProperty("db.login","root"));
-		System.out.println(prop.getProperty("db.password","fms2024"));
 
 	}
-	public static Properties readPropertiesFile(String fileName) throws IOException {
-		FileInputStream fis = null;
-		Properties prop = null;
-		try {
-			fis = new FileInputStream(fileName);
-			prop = new Properties();
-			prop.load(fis);
-		} catch(FileNotFoundException e) {
-			e.printStackTrace();
-		} catch(IOException e) {
-			e.printStackTrace();
-		} finally {
-			fis.close();
+		catch (IOException io){
+			io.printStackTrace();
+			
 		}
-		return prop;
+		
 	}
 }
+	
 
