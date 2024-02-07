@@ -10,7 +10,7 @@ public class CartDao implements Dao <Cart>{
 
 	@Override
 	public boolean create(Cart obj) {
-		String str = "INSERT INTO T_Order_Items (IdCourse, Quantity, UnitaryPrice, IdOrder) VALUES (?,?,?,?);";	
+		String str = "INSERT INTO T_Cart (IdCourse, Quantity, UnitaryPrice, IdOrder) VALUES (?,?,?,?);";	
 		try (PreparedStatement ps = connection.prepareStatement(str)){	
 			ps.setInt(1, obj.getIdCourse());
 			ps.setInt(2, obj.getQuantity());

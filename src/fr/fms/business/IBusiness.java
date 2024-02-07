@@ -26,7 +26,7 @@ import fr.fms.entities.Courses;
 		
 		// Liste des cours en  base
 		 
-		public ArrayList<Courses> reaCourses();	
+		public ArrayList<Courses> readCourses();	
 		
 		//méthode qui renvoie le cours correspondant à l'id
 		public Courses readOneCourse(int id);	

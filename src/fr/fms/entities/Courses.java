@@ -114,4 +114,20 @@ public class Courses {
 		UnitaryPrice = unitaryPrice;
 	}
 
+
+
+
+	public int getQuantity() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
+
+	public void setQuantity(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
