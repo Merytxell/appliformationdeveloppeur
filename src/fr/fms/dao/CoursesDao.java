@@ -9,10 +9,8 @@ import fr.fms.entities.Courses;
 
 public class CoursesDao implements Dao  <Courses>{
 
-	
-	
-	
-	
+
+
 	@Override
 	public boolean create(Courses obj) {
 		String str = "INSERT INTO T_Courses (IdCourse,Name,Description, Duration, Remote, UnitaryPrice) VALUES (?,?,?,?,?,?);";	
@@ -24,7 +22,7 @@ public class CoursesDao implements Dao  <Courses>{
 			ps.setString(5, obj.getRemote());
 			ps.setInt(6, obj.getUnitaryPrice());
 			return ps.executeUpdate() == 1;
-				//System.out.println("insertion du cours réussie");
+			//System.out.println("insertion du cours réussie");
 		} catch (SQLException e) {
 
 		} 	
@@ -57,9 +55,7 @@ public class CoursesDao implements Dao  <Courses>{
 		}
 		return null;
 	}
-		
-			
-	
+
 
 	@Override
 	public boolean update(Courses obj) {
@@ -91,10 +87,8 @@ public class CoursesDao implements Dao  <Courses>{
 		} 	
 		return false;
 	}
-	
-		
 
-	
+
 
 	public ArrayList<Courses> readAll() {
 		ArrayList<Courses> courses = new ArrayList<Courses>();
@@ -118,8 +112,10 @@ public class CoursesDao implements Dao  <Courses>{
 		return courses;
 	}
 
+}
 
-	
+
+
 
 
 

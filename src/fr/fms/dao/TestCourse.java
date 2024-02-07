@@ -31,8 +31,6 @@ public class TestCourse {
 		//test méthode delete ok 
 		courseDao.delete(5);
 		
-		
-		
 	}
 	
 	private static void testCoursesDao() {
