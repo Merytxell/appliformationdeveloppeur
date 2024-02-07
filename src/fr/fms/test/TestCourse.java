@@ -43,11 +43,15 @@ public class TestCourse {
 		//for(User user : userDao.readAll())
 			//System.out.println(user);
 		
-		//créer un compte user
-		CustomerDao customerDao = new CustomerDao();
+		//créer un customer
+		/*CustomerDao customerDao = new CustomerDao();
 		Customer customer = new Customer (3,"Avila","Claire","avila.claire@mail.com","060000","route des vins",5);
 		customerDao.create(customer);
-		System.out.println(customer);
+		System.out.println(customer);*/
+		
+		//associer customer à user :
+		Customer customer = new Customer();
+		
 	}
 	
 	
