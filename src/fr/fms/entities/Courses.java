@@ -7,8 +7,9 @@ public class Courses {
 	public String Remote;
 	public String Duration;
 	public int UnitaryPrice;
+	private int quantity =1;
 
-	
+	public static final int MAX_STRING_LENGTH = 20;
 	
 	
 	public Courses(int idCourse, String name, String description, String remote, String duration, int unitaryPrice) {
@@ -128,6 +129,20 @@ public class Courses {
 	public void setQuantity(int i) {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+
+
+	public String centerString() {
+		return centerString(String.valueOf(idCourse)) + centerString(Name) + centerString(Description) +  centerString(Remote)+ centerString(Duration) + centerString(String.valueOf(UnitaryPrice));
+	}
+		public static String centerString(String str) {
+			if(str.length() >= MAX_STRING_LENGTH) return str;
+			String dest = "                    ";
+			int deb = (MAX_STRING_LENGTH - str.length())/2 ;
+			String data = new StringBuilder(dest).replace( deb, deb + str.length(), str ).toString();
+			return data;
 	}
 
 }
