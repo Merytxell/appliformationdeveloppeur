@@ -1,6 +1,6 @@
 package fr.fms.entities;
 
-public class Customers {
+public class Customer {
 	
 private int idCustomer;
 private String name;
@@ -11,7 +11,7 @@ private String address;
 private int idUser;
 
 
-public Customers(int idCustomer, String name, String firstName, String email, String phone, String address,
+public Customer(int idCustomer, String name, String firstName, String email, String phone, String address,
 		int idUser) {
 	super();
 	this.idCustomer = idCustomer;
