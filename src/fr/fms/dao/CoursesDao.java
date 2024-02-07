@@ -81,18 +81,20 @@ public class CoursesDao implements Dao  <Courses>{
 
 
 	@Override
-	public boolean delete(Courses obj) {
-
+	public boolean delete(int i) {
 		try (Statement statement = connection.createStatement()){
-			String str = "DELETE FROM T_Articles where IdArticle=" + obj.getIdCourse() + ";";									
+			String str = "DELETE FROM T_Courses where IdCourse=" + i + ";";									
 			statement.executeUpdate(str);		
-			System.out.println("supression réussie");
+			return true;
 		} catch (SQLException e) {
-
+			//logger.severe("pb sql sur la suppression d'un article " + e.getMessage());
 		} 	
 		return false;
-
 	}
+	
+		
+
+	
 
 	public ArrayList<Courses> readAll() {
 		ArrayList<Courses> courses = new ArrayList<Courses>();
@@ -116,7 +118,8 @@ public class CoursesDao implements Dao  <Courses>{
 		return courses;
 	}
 
-}
+
+	
 
 
 

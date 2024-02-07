@@ -12,9 +12,9 @@ public interface Dao <T> {
 	public boolean create (T obj);
 	public T read (int id);
 	public boolean update(T obj);
-	public boolean delete(T obj);
+	boolean delete(int i);
 	public ArrayList<T> readAll();
-	
+
 	
 }
 
