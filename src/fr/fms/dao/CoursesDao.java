@@ -57,6 +57,8 @@ public class CoursesDao implements Dao  <Courses>{
 	}
 
 
+
+
 	@Override
 	public boolean update(Courses obj) {
 		String str = "UPDATE T_Courses set Name=? , Description=? , Duration=?, Remote=?, UnitaryPrice=? ,  where idCourse=?;";
