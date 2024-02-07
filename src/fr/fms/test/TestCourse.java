@@ -49,8 +49,8 @@ public class TestCourse {
 		customerDao.create(customer);
 		System.out.println(customer);*/
 		
-		//associer customer à user :
-		Customer customer = new Customer();
+		//associer customer à user : à faire
+		//Customer customer = new Customer();
 		
 	}
 	
