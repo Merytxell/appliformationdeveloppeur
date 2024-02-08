@@ -163,7 +163,7 @@ public class FormationDevApp {
 					scan.nextLine(); 
 					System.out.println("saisissez votre adresse :");
 					String address = scan.nextLine();
-					Customer cust = new Customer( newCustomer(1),name, fName, email, address, address, idUser); 
+					Customer cust = new Customer(name, fName, email, address, address, idUser); 
 					if(authenticate.addCustomer(cust))	
 						return authenticate.existCustomerByEmail(email).getIdCustomer();
 				}

@@ -1,8 +1,10 @@
 package fr.fms.test;
 import java.util.Scanner;
+
 import fr.fms.dao.CoursesDao;
 import fr.fms.dao.CustomerDao;
 import fr.fms.dao.UserDao;
+
 import fr.fms.entities.Courses;
 import fr.fms.entities.Customer;
 import fr.fms.entities.User;
@@ -28,25 +30,22 @@ public class TestCourse {
 	//	String login = scan.nextLine();
 	//	System.out.println("saisissez votre password");
 	//	String pwd = scan.nextLine();
-		
 	//	User user = userDao.findUserByCredentials(login,pwd);
 	//	if (user != null) {
 		//	for (Courses courses : new CoursesDao().readAll()) {
 		//		System.out.println(courses);
-			
 	//	}
 		//else System.out.println("accès refusé");
-		
 		//scan.close();
 		
 		//afficher tous les utilisateurs en base : ok !
 		//for(User user : userDao.readAll())
 			//System.out.println(user);
 		
-		
-		
-		CoursesDao coursesDao = new CoursesDao();
-		coursesDao.read(1);
+		//affichage des cours avec leur id - ok !
+		//CoursesDao courseDao = new CoursesDao();
+		//Courses courses = courseDao.read(4);
+		//System.out.println(courses);
 		
 		//créer un customer
 		/*CustomerDao customerDao = new CustomerDao();

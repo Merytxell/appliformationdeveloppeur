@@ -31,10 +31,10 @@ public class CoursesDao implements Dao  <Courses>{
 
 
 	@Override
-	public Courses read(int T) {
-		String str = "SELECT * FROM T_ WHERE IdCourse = ?";
+	public Courses read(int id) {
+		String str = "SELECT * FROM T_Courses WHERE IdCourse = ?";
 		try (PreparedStatement ps= connection.prepareStatement(str)){
-			ps.setInt(1, T);
+			ps.setInt(1, id);
 			try (ResultSet rs = ps.executeQuery()){
 				if (rs.next()) {
 					int rsIdCourse = rs.getInt("IdCourse");
@@ -43,7 +43,7 @@ public class CoursesDao implements Dao  <Courses>{
 					String rsDuration = rs.getString("Duration");
 					String rsRemote = rs.getString("Remote");
 					int rsPrice = rs.getInt("UnitaryPrice");
-					//int rsCategory = rs.getInt("IdCategory");
+					
 
 
 					return new Courses (rsIdCourse,rsName, rsDescription,rsDuration,rsRemote, rsPrice);

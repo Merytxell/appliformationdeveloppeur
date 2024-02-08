@@ -10,6 +10,16 @@ private String phone;
 private String address;
 private int idUser;
 
+public Customer (String name, String firstName, String email, String phone, String address,
+		int idUser) {
+	super();
+	this.name = name;
+	this.firstName = firstName;
+	this.email = email;
+	this.phone = phone;
+	this.address = address;
+	this.idUser = idUser;
+}
 
 public Customer(int idCustomer,String name, String firstName, String email, String phone, String address,
 		int idUser) {

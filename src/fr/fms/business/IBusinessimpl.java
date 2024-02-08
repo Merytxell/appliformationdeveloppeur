@@ -36,10 +36,10 @@ public class IBusinessimpl implements IBusiness {
 	}
 
 	@Override
-	public void rmFromCart(int id) {
-		Courses course = cart.get(id);
+	public void rmFromCart(int idCourse) {
+		Courses course = cart.get(idCourse);
 		if(course != null) {
-			if(course.getQuantity() == 1)	cart.remove(id);
+			if(course.getQuantity() == 1)	cart.remove(idCourse);
 			else course.setQuantity(course.getQuantity() - 1);
 		}
 

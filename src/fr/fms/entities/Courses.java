@@ -42,8 +42,8 @@ public class Courses {
 
 	@Override
 	public String toString() {
-		return " Id de la Formation  " + idCourse + " Nom de la formation : " + Name + " , Description : " + Description + " , Distanciel ou présentiel : "
-				+ Remote + " , Durée " + Duration + " , Prix " + UnitaryPrice + " €. ";
+		return " Id de la Formation  " + idCourse + " Nom de la formation : " + Name + " , Description : " + Description + " , Durée : "
+				+ Remote + " , Distanciel ou présentiel " + Duration + " , Prix " + UnitaryPrice + " €. ";
 	}
 
 

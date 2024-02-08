@@ -11,7 +11,7 @@ import fr.fms.entities.Courses;
 		public void addToCart(Courses course);		
 		
 		//retire du panier
-		public void rmFromCart(int id);		
+		public void rmFromCart(int idCourse);		
 		
 		//Liste du panier
 		public ArrayList<Courses> getCart();	
