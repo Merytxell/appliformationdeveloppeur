@@ -42,8 +42,8 @@ public class Courses {
 
 	@Override
 	public String toString() {
-		return "Courses [idCourse=" + idCourse + ", Name=" + Name + ", Description=" + Description + ", Remote="
-				+ Remote + ", Duration=" + Duration + ", UnitaryPrice=" + UnitaryPrice + "]";
+		return " Id de la Formation  " + idCourse + " Nom de la formation : " + Name + " , Description : " + Description + " , Distanciel ou présentiel : "
+				+ Remote + " , Durée " + Duration + " , Prix " + UnitaryPrice + " €. ";
 	}
 
 

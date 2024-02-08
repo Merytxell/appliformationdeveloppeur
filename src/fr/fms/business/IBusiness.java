@@ -29,6 +29,6 @@ import fr.fms.entities.Courses;
 		public ArrayList<Courses> readCourses();	
 		
 		//méthode qui renvoie le cours correspondant à l'id
-		public Courses readOneCourse(int id);	
+		public Courses readOneCourse(int idCourse);	
 		
 }

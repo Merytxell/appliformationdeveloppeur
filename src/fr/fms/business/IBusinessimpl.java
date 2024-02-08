@@ -9,13 +9,14 @@ import fr.fms.dao.DaoFactory;
 import fr.fms.entities.Courses;
 import fr.fms.entities.Customer;
 import fr.fms.entities.Order;
+import fr.fms.entities.User;
 import fr.fms.entities.Cart;
 
 public class IBusinessimpl implements IBusiness {
 
 	private HashMap<Integer,Courses> cart;
 	private CoursesDao coursesDao = new CoursesDao();
-	//private Dao<User> userDao = DaoFactory.getUserDao();
+	private Dao<User> userDao = DaoFactory.getUserDao();
 	private Dao<Order> orderDao = DaoFactory.getOrderDao();
 	private Dao<Cart> cartDao = DaoFactory.getCartDao();
 	private Dao<Customer> customerDao = DaoFactory.getCustomerDao();
@@ -73,9 +74,9 @@ public class IBusinessimpl implements IBusiness {
 		}
 
 		@Override
-		public Courses readOneCourse(int id) {
-			// TODO Auto-generated method stub
-			return coursesDao.read(id);
+		public Courses readOneCourse(int idCourse) {
+			
+			return coursesDao.read(idCourse);
 		}
 		public double getTotal() {
 			double [] total = {0};

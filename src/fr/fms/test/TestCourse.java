@@ -43,6 +43,11 @@ public class TestCourse {
 		//for(User user : userDao.readAll())
 			//System.out.println(user);
 		
+		
+		
+		CoursesDao coursesDao = new CoursesDao();
+		coursesDao.read(1);
+		
 		//créer un customer
 		/*CustomerDao customerDao = new CustomerDao();
 		Customer customer = new Customer (3,"Avila","Claire","avila.claire@mail.com","060000","route des vins",5);

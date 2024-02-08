@@ -11,10 +11,10 @@ private String address;
 private int idUser;
 
 
-public Customer(int idCustomer, String name, String firstName, String email, String phone, String address,
+public Customer(int idCustomer,String name, String firstName, String email, String phone, String address,
 		int idUser) {
 	super();
-	this.idCustomer = idCustomer;
+	this.idCustomer= idCustomer;
 	this.name = name;
 	this.firstName = firstName;
 	this.email = email;

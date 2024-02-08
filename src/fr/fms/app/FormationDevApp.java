@@ -43,15 +43,11 @@ public class FormationDevApp {
 			break;
 			case 6 : System.out.println("à bientôt dans notre boutique :)");
 			break;					
-			default : System.out.println("veuillez saisir une valeur entre 1 et 8");
+			default : System.out.println("veuillez saisir une valeur entre 1 et 6");
 			}
 		}
 	}
 
-	private static void connection() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	/**
 	 * Méthode qui affiche le menu principale
@@ -63,10 +59,8 @@ public class FormationDevApp {
 		System.out.println("2 : Retirer un article du panier");
 		System.out.println("3 : Afficher mon panier + total pour passer commande");
 		System.out.println("4 : Afficher tous les articles en stock");
-		System.out.println("5 : Afficher toutes les catégories en base");
-		System.out.println("6 : Afficher tous les articles d'une catégorie");
-		System.out.println("7 : Connexion(Deconnexion) à votre compte");
-		System.out.println("8 : sortir de l'application");
+		System.out.println("5 : Connexion(Deconnexion) à votre compte");
+		System.out.println("6 : sortir de l'application");
 	}
 
 
@@ -82,8 +76,8 @@ public class FormationDevApp {
 	 */
 	public static void removeCourses() {
 		System.out.println("Selectionner l'id de la formation à supprimer du panier");
-		int id = scanInt();
-		business.rmFromCart(id);
+		int idCourse = scanInt();
+		business.rmFromCart(idCourse);
 		displayCart(false);
 	}
 
@@ -92,18 +86,18 @@ public class FormationDevApp {
 	 */
 	public static void addCourses() {
 		System.out.println("Selectionner l'id de la formation à ajouter au panier");
-		int id = scanInt();
-		Courses course = business.readOneCourse(id);
+		int idCourse = scanInt();
+		Courses course = business.readOneCourse(idCourse);
 		if(course != null) {
 			business.addToCart(course);
 			displayCart(false);
 		}
 		else System.out.println("l'article que vous souhaitez ajouter n'existe pas, pb de saisi id");
-	} 
+	}
 
-	/**
-	 * Méthode qui affiche le contenu du panier + total de la commande + propose de passer commande
-	 */
+	
+	 //Méthode qui affiche le contenu du panier + total de la commande + propose de passer commande
+	 
 	private static void displayCart(boolean flag) {
 		if(business.isCartEmpty()) 	System.out.println("PANIER VIDE");
 		else {
@@ -111,7 +105,7 @@ public class FormationDevApp {
 			String titles = Courses.centerString(COLUMN_ID) + Courses.centerString(COLUMN_DESCRIPTION) + 
 					Courses.centerString(COLUMN_BRAND) + Courses.centerString(COLUMN_PRICE) + Courses.centerString("QUANTITE");
 			System.out.println(titles);
-			business.getCart().forEach(a -> System.out.println(a.toString() + Article.centerString(String.valueOf(a.getQuantity()))));
+			business.getCart().forEach(a -> System.out.println(a.toString() + Courses.centerString(String.valueOf(a.getQuantity()))));
 			if(flag) {
 				System.out.println("MONTANT TOTAL : " + business.getTotal());
 				System.out.println("Souhaitez vous passer commande ? Oui/Non :");
@@ -120,6 +114,7 @@ public class FormationDevApp {
 				}
 			}
 		}
+	}
 
 		/**
 		 *Méthode qui passe la commande, l'utilisateur doit être connecté
@@ -168,7 +163,7 @@ public class FormationDevApp {
 					scan.nextLine(); 
 					System.out.println("saisissez votre adresse :");
 					String address = scan.nextLine();
-					Customer cust = new Customer(name, fName, email, tel, address, idUser); 
+					Customer cust = new Customer( newCustomer(1),name, fName, email, address, address, idUser); 
 					if(authenticate.addCustomer(cust))	
 						return authenticate.existCustomerByEmail(email).getIdCustomer();
 				}
@@ -217,10 +212,8 @@ public class FormationDevApp {
 				}
 			}
 		}
-
-		/**
-		 * Méthode qui ajoute un nouvel utilisateur en base
-		 */
+		  //Méthode qui ajoute un nouvel utilisateur en base
+		
 		public static void newUser() {
 			System.out.println("saisissez un login :");
 			String login = scan.next();			

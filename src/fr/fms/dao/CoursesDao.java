@@ -31,10 +31,10 @@ public class CoursesDao implements Dao  <Courses>{
 
 
 	@Override
-	public Courses read(int id) {
-		String str = "SELECT * FROM T_Articles WHERE IdArticle = ?";
+	public Courses read(int T) {
+		String str = "SELECT * FROM T_ WHERE IdCourse = ?";
 		try (PreparedStatement ps= connection.prepareStatement(str)){
-			ps.setInt(1, id);
+			ps.setInt(1, T);
 			try (ResultSet rs = ps.executeQuery()){
 				if (rs.next()) {
 					int rsIdCourse = rs.getInt("IdCourse");
