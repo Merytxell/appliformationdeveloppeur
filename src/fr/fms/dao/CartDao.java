@@ -16,15 +16,15 @@ public class CartDao implements Dao <Cart>{
 			ps.setInt(2, obj.getQuantity());
 			ps.setDouble(3, obj.getUnitaryPrice());
 			ps.setInt(4, obj.getIdOrder());
-			
+
 			ps.executeUpdate();			
 			return true;
 		} catch (SQLException e) {
-			
+
 		}
 		return false;
 	}
-	
+
 
 	@Override
 	public Cart read(int id) {

@@ -5,7 +5,7 @@ public class Cart {
 	private int idCourse;
 	private int quantity;
 	private double unitaryPrice;
-	
+
 	private int idOrder;
 
 	public Cart (int idOrderItem, int idCourse, int quantity, double unitaryPrice, int idOrder) {
@@ -14,8 +14,8 @@ public class Cart {
 		this.quantity = quantity;
 		this.unitaryPrice = unitaryPrice;
 		this.idOrder = idOrder;
-		
-		
+
+
 	}
 
 	@Override

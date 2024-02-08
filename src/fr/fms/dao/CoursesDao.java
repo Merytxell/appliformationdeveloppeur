@@ -20,7 +20,7 @@ public class CoursesDao implements Dao  <Courses>{
 			ps.setString(3, obj.getDescription());
 			ps.setString(4, obj.getDuration());	
 			ps.setString(5, obj.getRemote());
-			ps.setInt(6, obj.getUnitaryPrice());
+			ps.setDouble(6, obj.getUnitaryPrice());
 			return ps.executeUpdate() == 1;
 			//System.out.println("insertion du cours réussie");
 		} catch (SQLException e) {
@@ -42,8 +42,8 @@ public class CoursesDao implements Dao  <Courses>{
 					String rsDescription = rs.getString("Description");
 					String rsDuration = rs.getString("Duration");
 					String rsRemote = rs.getString("Remote");
-					int rsPrice = rs.getInt("UnitaryPrice");
-					
+					double rsPrice = rs.getDouble("UnitaryPrice");
+
 
 
 					return new Courses (rsIdCourse,rsName, rsDescription,rsDuration,rsRemote, rsPrice);
@@ -67,7 +67,7 @@ public class CoursesDao implements Dao  <Courses>{
 			ps.setString(2, obj.getDescription());
 			ps.setString(3, obj.getDuration());
 			ps.setString(4, obj.getRemote());
-			ps.setInt(5, obj.getUnitaryPrice());
+			ps.setDouble(5, obj.getUnitaryPrice());
 			ps.setInt(6, obj.getIdCourse());
 			if( ps.executeUpdate() == 1)	
 				System.out.println("mise à jour réussie");
@@ -103,7 +103,7 @@ public class CoursesDao implements Dao  <Courses>{
 					String rsDescription = resultSet.getString(3);
 					String rsDuration = resultSet.getString(4);		
 					String rsRemote = resultSet.getString(5);
-					int rsUnitaryPrice = resultSet.getInt(6);
+					double rsUnitaryPrice = resultSet.getDouble(6);
 					courses.add((new Courses(rsIdArticle,rsName,rsDescription,rsDuration,rsRemote,rsUnitaryPrice)));						
 				}	
 			}

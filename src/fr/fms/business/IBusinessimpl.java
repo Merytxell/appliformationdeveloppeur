@@ -1,5 +1,4 @@
 package fr.fms.business;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -53,42 +52,42 @@ public class IBusinessimpl implements IBusiness {
 
 	@Override
 	public int order(int idCustomer) {
-		
-			if(customerDao.read(idCustomer) != null) {
-				double total = getTotal(); 
-				Order order = new Order(total, new Date(), idCustomer);
-				if(orderDao.create(order)) {	
-					for(Courses course : cart.values()) {	
-						cartDao.create(new Cart(0, course.getIdCourse(), course.getQuantity(), course.getUnitaryPrice(), order.getIdOrder()));
-					}
-					return order.getIdOrder();
+
+		if(customerDao.read(idCustomer) != null) {
+			double total = getTotal(); 
+			Order order = new Order(total, new Date(), idCustomer);
+			if(orderDao.create(order)) {	
+				for(Courses course : cart.values()) {	
+					cartDao.create(new Cart(0, course.getIdCourse(), course.getQuantity(), course.getUnitaryPrice(), order.getIdOrder()));
 				}
+				return order.getIdOrder();
 			}
-			return 0;
 		}
-
-		@Override
-		public ArrayList<Courses> readCourses() {
-
-			return coursesDao.readAll();
-		}
-
-		@Override
-		public Courses readOneCourse(int idCourse) {
-			
-			return coursesDao.read(idCourse);
-		}
-		public double getTotal() {
-			double [] total = {0};
-			cart.values().forEach((a) -> total[0] += a.getUnitaryPrice() * a.getQuantity()); 	
-			return total[0];
-		}
-		public boolean isCartEmpty() {
-			return cart.isEmpty();
-		}
-
-		public void clearCart() {
-			cart.clear();		
-		}
+		return 0;
 	}
-	
+
+	@Override
+	public ArrayList<Courses> readCourses() {
+
+		return coursesDao.readAll();
+	}
+
+	@Override
+	public Courses readOneCourse(int idCourse) {
+
+		return coursesDao.read(idCourse);
+	}
+	public double getTotal() {
+		double [] total = {0};
+		cart.values().forEach((a) -> total[0] += a.getUnitaryPrice() * a.getQuantity()); 	
+		return total[0];
+	}
+	public boolean isCartEmpty() {
+		return cart.isEmpty();
+	}
+
+	public void clearCart() {
+		cart.clear();		
+	}
+}
+

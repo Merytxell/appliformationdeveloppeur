@@ -15,7 +15,7 @@ public interface Dao <T> {
 	boolean delete(int i);
 	public ArrayList<T> readAll();
 
-	
+
 }
 
 

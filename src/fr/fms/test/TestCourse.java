@@ -1,8 +1,11 @@
 package fr.fms.test;
 import java.util.Scanner;
+import java.util.function.Predicate;
 
 import fr.fms.dao.CoursesDao;
 import fr.fms.dao.CustomerDao;
+import fr.fms.dao.Dao;
+import fr.fms.dao.DaoFactory;
 import fr.fms.dao.UserDao;
 
 import fr.fms.entities.Courses;
@@ -15,6 +18,9 @@ public class TestCourse {
 	public static void main (String [] args) {
 		
 		
+		
+	
+	
 		//recherche des users - ok
 		//System.out.println(new UserDao().findUserByLogin("Neo"));
 		
@@ -56,7 +62,7 @@ public class TestCourse {
 		//associer customer à user : à faire
 		//Customer customer = new Customer();
 		
-	}
+	//}
 	
 	
 //}
@@ -70,7 +76,7 @@ public class TestCourse {
 		//test méthode read all ok 
 		//for (Courses course : courseDao.readAll()) {
 				//System.out.println(course);
-			}
+			//}
 		//Courses course = courseDao.read(5);
 		//System.out.println(course);
 		
@@ -85,7 +91,7 @@ public class TestCourse {
 		//test méthode delete ok 
 		//courseDao.delete(5);
 		
-//}
+}
 	
 	
 
