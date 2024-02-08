@@ -64,7 +64,7 @@ public class FormationDevApp {
 	}
 
 
-	//Méthode qui affiche tous les articles en base en centrant le texte 
+	//Méthode qui affiche tous les articles en base en centrant le texte - à améliorer
 
 	public static void displayCourses() { 		
 		System.out.println(Courses.centerString(COLUMN_ID) + Courses.centerString(COLUMN_NAMEOFCOURSES) + Courses.centerString(COLUMN_DESCRIPTION) + Courses.centerString(COLUMN_PRICE));
@@ -72,7 +72,7 @@ public class FormationDevApp {
 	}
 
 	/**
-	 * Méthode qui supprime un article du panier
+	 * Méthode qui supprime un article du panier - ok
 	 */
 	public static void removeCourses() {
 		System.out.println("Selectionner l'id de la formation à supprimer du panier");
@@ -82,7 +82,7 @@ public class FormationDevApp {
 	}
 
 	/**
-	 * Méthode qui ajoute un article au panier
+	 * Méthode qui ajoute un article au panier - ok
 	 */
 	public static void addCourses() {
 		System.out.println("Selectionner l'id de la formation à ajouter au panier");
@@ -96,7 +96,7 @@ public class FormationDevApp {
 	}
 
 	
-	 //Méthode qui affiche le contenu du panier + total de la commande + propose de passer commande
+	 //Méthode qui affiche le contenu du panier + total de la commande + propose de passer commande - ok
 	 
 	private static void displayCart(boolean flag) {
 		if(business.isCartEmpty()) 	System.out.println("PANIER VIDE");
@@ -144,7 +144,7 @@ public class FormationDevApp {
 
 		/**
 		 * Méthode qui ajoute un client en base s'il n'existe pas déjà 
-		 * @return id du client afin de l'associer à la commande en cours
+		 * @return id du client afin de l'associer à la commande en cours - à améliorer
 		 */
 		private static int newCustomer(int idUser) {
 			System.out.println("Avez vous déjà un compte client ? Saisissez une adresse email valide :");
@@ -177,7 +177,7 @@ public class FormationDevApp {
 		}
 
 		/**
-		 * Méthode qui réalise la connexion/deconnexion d'un utilisateur
+		 * Méthode qui réalise la connexion/deconnexion d'un utilisateur - ok
 		 * si l'utilisateur n'existe pas, il lui est proposé d'en créer un
 		 */
 		private static void connection() {
@@ -212,7 +212,7 @@ public class FormationDevApp {
 				}
 			}
 		}
-		  //Méthode qui ajoute un nouvel utilisateur en base
+		  //Méthode qui ajoute un nouvel utilisateur en base - ok !
 		
 		public static void newUser() {
 			System.out.println("saisissez un login :");
@@ -236,7 +236,7 @@ public class FormationDevApp {
 				e.printStackTrace();
 			}
 		}
-
+			//ok
 		public static int scanInt() {
 			while(!scan.hasNextInt()) {
 				System.out.println("saisissez une valeur entière svp");
@@ -244,7 +244,7 @@ public class FormationDevApp {
 			}
 			return scan.nextInt();
 		}
-
+			//ok
 		public static boolean isValidEmail(String email) {
 			String regExp = "^[A-Za-z0-9._-]+@[A-Za-z0-9._-]+\\.[a-z][a-z]+$";	
 			return email.matches(regExp);
