@@ -12,17 +12,16 @@ public class Courses {
 	public static final int MAX_STRING_LENGTH = 20;
 	
 	
-	public Courses(int idCourse, String name, String description, String remote, String duration, int unitaryPrice) {
+	public Courses(int idCourse, String name, String description, String remote, String duration,int unitaryPrice) {
 		super();
 		this.idCourse = idCourse;
 		Name = name;
 		Description = description;
 		Remote = remote;
 		Duration = duration;
-		UnitaryPrice = unitaryPrice;
+		
+		
 	}
-
-
 
 
 	public Courses(String name, String description, String remote, String duration, int unitaryPrice) {
@@ -32,11 +31,22 @@ public class Courses {
 		Remote = remote;
 		Duration = duration;
 		UnitaryPrice = unitaryPrice;
+		
 
 	}
 
 
 	
+	public String centerString() {
+		return centerString(String.valueOf(idCourse)) + centerString(Name) + centerString(Description) +  centerString(Remote)+ centerString(Duration) + centerString(String.valueOf(UnitaryPrice));
+	}
+		public static String centerString(String str) {
+			if(str.length() >= MAX_STRING_LENGTH) return str;
+			String dest = "                    ";
+			int deb = (MAX_STRING_LENGTH - str.length())/2 ;
+			String data = new StringBuilder(dest).replace( deb, deb + str.length(), str ).toString();
+			return data;
+	}
 
 
 
@@ -116,33 +126,14 @@ public class Courses {
 	}
 
 
-
-
 	public int getQuantity() {
-		// TODO Auto-generated method stub
-		return 0;
+		return quantity;
 	}
 
 
-
-
-	public void setQuantity(int i) {
-		// TODO Auto-generated method stub
-		
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
-
-
-
-	public String centerString() {
-		return centerString(String.valueOf(idCourse)) + centerString(Name) + centerString(Description) +  centerString(Remote)+ centerString(Duration) + centerString(String.valueOf(UnitaryPrice));
-	}
-		public static String centerString(String str) {
-			if(str.length() >= MAX_STRING_LENGTH) return str;
-			String dest = "                    ";
-			int deb = (MAX_STRING_LENGTH - str.length())/2 ;
-			String data = new StringBuilder(dest).replace( deb, deb + str.length(), str ).toString();
-			return data;
-	}
-
+	
 }

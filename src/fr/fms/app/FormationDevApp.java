@@ -14,9 +14,9 @@ public class FormationDevApp {
 
 	public static final String TEXT_BLUE = "\u001B[36m";
 	public static final String TEXT_RESET = "\u001B[0m";	
-	private static final String COLUMN_ID = "IDENTIFIANT";
-	private static final String COLUMN_DESCRIPTION = "DESCRIPTION";
-	private static final String COLUMN_BRAND = "MARQUE";
+	private static final String COLUMN_ID = "ID de la Formation";
+	private static final String COLUMN_NAMEOFCOURSES= "NAME";
+	private static final String COLUMN_DESCRIPTION = "DESRIPTION";
 	private static final String COLUMN_PRICE = "PRIX";
 	private static final String COLUMN_NAME = "NAME";
 
@@ -67,7 +67,7 @@ public class FormationDevApp {
 	//Méthode qui affiche tous les articles en base en centrant le texte 
 
 	public static void displayCourses() { 		
-		System.out.println(Courses.centerString(COLUMN_ID) + Courses.centerString(COLUMN_DESCRIPTION) + Courses.centerString(COLUMN_BRAND) + Courses.centerString(COLUMN_PRICE));
+		System.out.println(Courses.centerString(COLUMN_ID) + Courses.centerString(COLUMN_NAMEOFCOURSES) + Courses.centerString(COLUMN_DESCRIPTION) + Courses.centerString(COLUMN_PRICE));
 		business.readCourses().forEach(System.out::println);
 	}
 
@@ -102,8 +102,8 @@ public class FormationDevApp {
 		if(business.isCartEmpty()) 	System.out.println("PANIER VIDE");
 		else {
 			System.out.println("CONTENU DU PANIER :");
-			String titles = Courses.centerString(COLUMN_ID) + Courses.centerString(COLUMN_DESCRIPTION) + 
-					Courses.centerString(COLUMN_BRAND) + Courses.centerString(COLUMN_PRICE) + Courses.centerString("QUANTITE");
+			String titles = Courses.centerString(COLUMN_ID) + Courses.centerString(COLUMN_NAMEOFCOURSES) + 
+					Courses.centerString(COLUMN_DESCRIPTION) + Courses.centerString(COLUMN_PRICE) + Courses.centerString("QUANTITE");
 			System.out.println(titles);
 			business.getCart().forEach(a -> System.out.println(a.toString() + Courses.centerString(String.valueOf(a.getQuantity()))));
 			if(flag) {
